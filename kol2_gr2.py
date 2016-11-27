@@ -34,13 +34,15 @@ class SchoolClass(object):
 		
 		self.className = className
 		self.students = students
+		self.students = list(set(self.students))
+
 
 
 class ClassDiary(object):
 	def __init__(self, schoolClass):
 		self.schoolClass = schoolClass
-		self.diary = { i:[] for i in self.schoolClass.students}
-		self.attendance ={ i:0 for i in self.schoolClass.students}
+		self.diary = {i: [] for i in self.schoolClass.students}
+		self.attendance = {i: 0 for i in self.schoolClass.students}
 
 	def addAtendance(self,student):
 		for i in self.schoolClass.students:
